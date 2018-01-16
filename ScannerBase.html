@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="viz.js"></script>
+		<script src="ScannerBase.js"></script>
+		<script>
+
+			$(document).ready(function() {
+				$("#generate").on('click', function() {
+
+					ScannerBase.serialReset();
+
+					var regexstr = $("#regexstr").val();
+					var ast = ScannerBase.makeASTFromRegexStr(regexstr);
+					var nfa = ScannerBase.makeNFAFromAST(ast);
+					var dfa = ScannerBase.makeDFAFromNFA(nfa);
+					var ofa = ScannerBase.makeOFAFromDFA(dfa);
+
+					$("#nfa").html(
+						ScannerBase.generateDotImageOfNFA(nfa)
+					);
+					$("#dfa").html(
+						ScannerBase.generateDotImageOfDFA(dfa)
+					);
+					$("#ofa").html(
+						ScannerBase.generateDotImageOfOFA(ofa)
+					);
+					$("#ast").html(
+						ScannerBase.generateDotImageOfAST(ast)
+					);
+				});
+				document.getElementById("defaultOpen").click();
+			});
+
+			function openTab(tabname) {
+				$(".tabcontent").css('display', 'none');
+				$(".tablinks").removeClass('active');
+				$("#"+tabname).css('display', 'block');
+				$("#tab_ul").find("[name="+tabname+"]").addClass('active');
+			}
+		</script>
+		<style>
+			 /* Style the list */
+			ul.tab {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				overflow: auto;
+				border: 1px solid #ccc;
+				background-color: #f1f1f1;
+			}
+
+			/* Float the list items side by side */
+			ul.tab li {float: left;}
+
+			/* Style the links inside the list items */
+			ul.tab li a {
+				display: inline-block;
+				color: black;
+				text-align: center;
+				padding: 14px 16px;
+				text-decoration: none;
+				transition: 0.3s;
+				font-size: 17px;
+			}
+
+			/* Change background color of links on hover */
+			ul.tab li a:hover {background-color: #ddd;}
+
+			/* Create an active/current tablink class */
+			ul.tab li a:focus, .active {background-color: #ccc;}
+
+			/* Style the tab content */
+			.tabcontent {
+				width: 100%;
+				overflow: scroll;
+				display: none;
+				padding: 6px 12px;
+				border: 1px solid #ccc;
+				border-top: none;
+			}
+		</style>
+		<title>ScannerBase</title>
+	</head>
+	<body>
+		<input id="regexstr" type="text" style="font-size: 32px;">
+			<button id="generate" style="font-size: 32px;">Generate</button>
+		<br><br>
+		<ul class="tab">
+			<li><a name='nfa_tab' href="javascript:void(0);" class="tablinks" onclick="openTab('nfa_tab')" id="defaultOpen">NFA</a></li>
+			<li><a name='dfa_tab' href="javascript:void(0);" class="tablinks" onclick="openTab('dfa_tab')">DFA</a></li>
+			<li><a name='ofa_tab' href="javascript:void(0);" class="tablinks" onclick="openTab('ofa_tab')">OFA</a></li>
+			<li><a name='ast_tab' href="javascript:void(0);" class="tablinks" onclick="openTab('ast_tab')">AST</a></li>
+		</ul>
+
+		<div id="nfa_tab" class="tabcontent">
+			<div id="nfa"></div>
+		</div>
+		<div id="dfa_tab" class="tabcontent">
+			<div id="dfa"></div>
+		</div>
+		<div id="ofa_tab" class="tabcontent">
+			<div id="ofa"></div>
+		</div>
+		<div id="ast_tab" class="tabcontent">
+			<div id="ast"></div>
+		</div>
+	</body>
+</html>
