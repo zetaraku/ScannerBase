@@ -1,0 +1,9 @@
+{
+	"presets": [
+		"env"
+	],
+	"plugins": [
+		"transform-es2015-modules-amd",
+		"transform-strict-mode"
+	]
+}

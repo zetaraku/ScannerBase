@@ -1,0 +1,20 @@
+doctype html
+html
+	head
+		meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+		script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
+		title ScannerBase
+	body
+		input#regexstr(type='text', style='font-size: 32px;')
+		button#generate(style='font-size: 32px;') Generate
+		br
+		br
+		ul#tab_bar.tab
+		#nfa_tab.tabcontent
+			#nfa
+		#dfa_tab.tabcontent
+			#dfa
+		#ofa_tab.tabcontent
+			#ofa
+		#ast_tab.tabcontent
+			#ast
