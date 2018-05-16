@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <title>ScannerBase</title>
+  </head>
+  <body>
+    <input id="regexstr" type="text" style="font-size: 32px;">
+    <button id="generate" style="font-size: 32px;">Generate</button><br><br>
+    <ul class="tab" id="tab_bar"></ul>
+    <div class="tabcontent" id="nfa_tab">
+      <div id="nfa"></div>
+    </div>
+    <div class="tabcontent" id="dfa_tab">
+      <div id="dfa"></div>
+    </div>
+    <div class="tabcontent" id="ofa_tab">
+      <div id="ofa"></div>
+    </div>
+    <div class="tabcontent" id="ast_tab">
+      <div id="ast"></div>
+    </div>
+  <script type="text/javascript" src="bundle.js"></script></body>
+</html>
