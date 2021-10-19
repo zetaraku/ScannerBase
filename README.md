@@ -10,7 +10,7 @@ Functionality
 It can:
 
 * transform regexp into regexp-AST
-* transform regexp-AST into NFA (only simple operators: `*`, `+`, `?`, and `()`, are supported)
+* transform regexp-AST into NFA (only simple operators: `|`, `*`, `+`, `?`, and `()`, are supported)
 * transform NFA into DFA
 * transform DFA into OFA (the optimized version)
 
