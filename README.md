@@ -1,4 +1,6 @@
 # ScannerBase
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fzetaraku%2FScannerBase.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fzetaraku%2FScannerBase?ref=badge_shield)
+
 
 This a rudimentary project of regexp-to-DFA translator and visualizer (not yet a scanner!) made around 2016.
 
@@ -31,3 +33,7 @@ License
 Copyright © 2017, Raku Zeta. Licensed under the MIT license.
 
 Other used libraries and license infomation are located in `./src/js/lib/`.
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fzetaraku%2FScannerBase.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fzetaraku%2FScannerBase?ref=badge_large)
